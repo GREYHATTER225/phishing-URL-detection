@@ -125,3 +125,6 @@ Add database to track blacklisted URLs over time.
 ☕ and a lot of
  Ctrl+C / Ctrl+V 😅 ( just kidding )
 
+ AND FINNALLY 
+
+"In the world of lies... I’ll be the truth." —  Uzumaki
