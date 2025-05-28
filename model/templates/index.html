@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing URL Detector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f6;
+      background-image: radial-gradient(rgba(92, 6, 6, 0.02) 1px, transparent 1px);
+      background-size: 16px 16px;
+      color: #141c11;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-text {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      color: #1a2417;
+    }
+
+    .caption {
+      font-size: 0.95rem;
+      color: rgba(26, 36, 23, 0.6);
+      margin-bottom: 2rem;
+    }
+
+    .glass-box {
+      background: rgba(171, 200, 162, 0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(171, 200, 162, 0.3);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .glass-box:hover {
+      transform: scale(1.01);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #abc8a2;
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: #1a2417;
+      outline: none;
+      margin-bottom: 1rem;
+    }
+
+    .form-control::placeholder {
+      color: #888;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 0.8rem;
+      font-weight: 600;
+      background-color: #b3003c;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      transition: transform 0.15s ease, background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #8a002e;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+
+    .result-box {
+      margin-top: 2rem;
+      padding: 1.2rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .result-secure {
+      background-color: rgba(171, 200, 162, 0.15);
+      border: 1px solid #5bb56b;
+      color: #1a2417;
+    }
+
+    .result-danger {
+      background-color: rgba(179, 0, 60, 0.1);
+      border: 2px solid #ff4d6d;
+      color: #b3003c;
+      box-shadow: 0 0 8px rgba(255, 77, 109, 0.5), 0 0 16px rgba(255, 77, 109, 0.3);
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 8px rgba(255, 77, 109, 0.4), 0 0 16px rgba(255, 77, 109, 0.2);
+      }
+      to {
+        box-shadow: 0 0 12px rgba(255, 77, 109, 0.6), 0 0 20px rgba(255, 77, 109, 0.4);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="hero-text">Phishing URL Detection</h1>
+    <p class="caption">Identify unsafe links before they catch you.</p>
+
+    <div class="glass-box">
+      <form method="POST" action="/">
+        <input type="text" name="url" id="url" class="form-control" placeholder="Drop the link you wanna verify..." required />
+        <button type="submit" class="btn-primary">Analyze URL</button>
+      </form>
+    </div>
+
+    {% if url %}
+      <div class="result-box {% if data.prediction_label == 1 %}result-danger{% else %}result-secure{% endif %}">
+        {% if data.prediction_label == 1 %}
+          ⚠️ Warning: The analyzed URL exhibits characteristics commonly associated with phishing.
+        {% else %}
+          ✅ Analysis complete: No suspicious indicators found. The URL appears safe.
+        {% endif %}
+        <div class="mt-2 small">{{ url }}</div>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
+<script>
+  // Optional: Add any client-side JavaScript if needed if needed dude 
+  
