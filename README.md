@@ -65,9 +65,13 @@ pip install -r requirements.txt
  2. Create Virtual Environment:
     ```
  python -m venv zenv
- # Windows
+ ```
+ ## Windows
+```
  zenv\Scripts\activate
- # macOS/Linux
+ ```
+ ## macOS/Linux
+```
  source zenv/bin/activate
 ```
 
