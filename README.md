@@ -76,13 +76,14 @@ pip install -r requirements.txt
 ```
 
 💻 Launch CLI Mode
-
+```
 python main.py
-
+```
 
 🌐 Launch Web App
-
+```
 python app.py
+```
 # Then open http://127.0.0.1:5000/ in your browser
 
 
@@ -105,6 +106,7 @@ F1 Score: 94%
 
 
 📸 Screenshots
+<img 
 
 
 
