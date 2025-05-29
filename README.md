@@ -56,11 +56,11 @@ This project is a practical implementation of a **phishing URL detection system*
 
 →🛠️ How to Run It
     Setup (First Time Only)
-
-     ``` git clone https://github.com/GREYHATTER225/phishing-URL-detection.git
-```cd phishing-URL-detection
-```pip install -r requirements.txt
-
+```
+git clone https://github.com/GREYHATTER225/phishing-URL-detection.git
+cd phishing-URL-detection
+pip install -r requirements.txt
+```
 
 💻 Launch CLI Mode
 
